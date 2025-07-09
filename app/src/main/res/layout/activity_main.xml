@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:gravity="center"
+        android:text="Adicionar hábito"
+        android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/editNome"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:hint="Nome do hábito" />
+
+    <EditText
+        android:id="@+id/editDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:gravity="top"
+        android:hint="Descrição"
+        android:inputType="textMultiLine"
+        android:minLines="3" />
+
+    <Spinner
+        android:id="@+id/spinnerFrequencia"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:entries="@array/frequencia_array" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        android:text="Salvar" />
+
+</LinearLayout>

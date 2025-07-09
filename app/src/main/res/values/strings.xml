@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Gerenciador de Hábitos</string>
+    <string-array name="frequencia_array">
+        <item>Diária</item>
+        <item>Semanal</item>
+        <item>Mensal</item>
+    </string-array>
+    <string name="sem_descricao">Sem descrição</string>
+    <string name="marcar_feito">Marcar como feito</string>
+    <string name="habito_removido">Hábito removido</string>
+    <string name="habito_salvo">Hábito salvo!</string>
+    <string name="preencha_nome">Por favor, informe o nome do hábito</string>
+</resources>
