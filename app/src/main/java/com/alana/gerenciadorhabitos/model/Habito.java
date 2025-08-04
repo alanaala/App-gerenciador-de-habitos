@@ -10,14 +10,12 @@ public class Habito {
     private String nome;
     private String descricao;
     private String frequencia;
-    private ArrayList<Long> diasCumpridos;
 
     public Habito(String nome, String descricao, String frequencia) {
         this.id = ++contadorId;
         this.nome = nome;
         this.descricao = descricao;
         this.frequencia = frequencia;
-        this.diasCumpridos = new ArrayList<>();
     }
 
     public int getId() {
@@ -31,22 +29,5 @@ public class Habito {
     }
     public String getFrequencia() {
         return frequencia;
-    }
-
-    public ArrayList<Long> getDiasCumpridos() {
-        return diasCumpridos;
-    }
-
-    public int getDiasCumpridosCount() {
-        return diasCumpridos.size();
-    }
-
-    private long getTimestampHoje() {
-        Date now = new Date();
-
-        now.setHours(0);
-        now.setMinutes(0);
-        now.setSeconds(0);
-        return now.getTime();
     }
 }

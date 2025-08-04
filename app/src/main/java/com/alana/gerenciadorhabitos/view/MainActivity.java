@@ -42,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            Habito novoHabito = new Habito(nome, descricao, frequencia);
-            controller.adicionarHabito(novoHabito);
-            dbController.insert(nome, descricao, frequencia);
             startActivity(new Intent(MainActivity.this, ListaHabitosActivity.class));
             Toast.makeText(this, "Hábito criado!", Toast.LENGTH_SHORT).show();
-        });
 
+            Habito novoHabito = new Habito(nome, descricao, frequencia);
+
+            controller.adicionarHabito(novoHabito,nome, descricao, frequencia);
+            dbController.insert(nome, descricao, frequencia);
+        });
     }
 }

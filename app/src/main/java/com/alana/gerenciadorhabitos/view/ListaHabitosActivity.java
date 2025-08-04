@@ -9,6 +9,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alana.gerenciadorhabitos.R;
+import com.alana.gerenciadorhabitos.controller.DbController;
 import com.alana.gerenciadorhabitos.controller.HabitoController;
 import com.alana.gerenciadorhabitos.model.Habito;
 
@@ -26,6 +27,8 @@ public class ListaHabitosActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listViewHabitos);
         Button btnNovoHabito = findViewById(R.id.btnNovoHabito);
         HabitoController controller = new HabitoController(this);
+        DbController dbController = new DbController(this);
+
         habitos = controller.listarHabitos();
         ArrayList<String> dadosHabitos = new ArrayList<>();
 
@@ -41,6 +44,7 @@ public class ListaHabitosActivity extends AppCompatActivity {
             Intent intent = new Intent(ListaHabitosActivity.this, DetalhesActivity.class);
             intent.putExtra("id", habitoSelecionado.getId());
             startActivity(intent);
+
         });
 
         btnNovoHabito.setOnClickListener(v -> {

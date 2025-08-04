@@ -21,7 +21,6 @@ public class DetalhesActivity extends AppCompatActivity {
     private Spinner spinnerFrequencia;
     private HabitoController controller;
     private DbController dbController;
-    private Habito habitoAtualizar;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,6 +34,7 @@ public class DetalhesActivity extends AppCompatActivity {
         editNome = findViewById(R.id.editNome);
         editDescricao = findViewById(R.id.editDescricao);
         spinnerFrequencia = findViewById(R.id.spinnerFrequencia);
+        controller = new HabitoController(this);
         dbController = new DbController(this);
 
         btnSalvar.setOnClickListener(v -> {
@@ -42,16 +42,13 @@ public class DetalhesActivity extends AppCompatActivity {
             String descricao = editDescricao.getText().toString().trim();
             String frequencia = spinnerFrequencia.getSelectedItem().toString().trim();
 
-            controller.atualizarHabito(habitoAtualizar);
-            dbController.insert(nome, descricao, frequencia);
+            Habito habitoAtualizado = new Habito(nome, descricao, frequencia);
+
+            controller.atualizarHabito(habitoAtualizado);
+            dbController.insert(nome,descricao, frequencia);
         });
 
-        btnVoltar.setOnClickListener(v -> {
-            Intent intent = new Intent(DetalhesActivity.this, ListaHabitosActivity.class);
-            startActivity(intent);
-        });
-
-        btnExcluir.setOnClickListener((id) -> {
+        btnExcluir.setOnClickListener(v -> {
             String nome = editNome.getText().toString().trim();
             String descricao = editDescricao.getText().toString().trim();
             String frequencia = spinnerFrequencia.getSelectedItem().toString().trim();
@@ -59,7 +56,13 @@ public class DetalhesActivity extends AppCompatActivity {
             Habito habitoAtualizado = new Habito(nome, descricao, frequencia);
 
             controller.removerHabito(habitoAtualizado);
-            dbController.insert(nome, descricao, frequencia);
+            dbController.insert(nome,descricao, frequencia);
         });
+
+        btnVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(DetalhesActivity.this, ListaHabitosActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
