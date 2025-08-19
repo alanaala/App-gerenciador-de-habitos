@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="blueBackground">#003f7f</color>
-    <color name="red">#BC2525</color>
+    <color name="azul">#003f7f</color>
+    <color name="cinza">#E0E0E0</color>
+
+    <color name="diario">#FFCDD2</color>
+    <color name="semanal">#C8E6C9</color>
+    <color name="mensal">#BBDEFB</color>
 </resources>

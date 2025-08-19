@@ -20,17 +20,18 @@ public class Db extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String criarDB = "CREATE TABLE " + Db.TABLE + " ( " + Db.ID + " INTEGER PRIMARY KEY, " + Db.NOME + " text, " + Db.DESCRICAO + " text, " + Db.FREQUENCIA + " text)";
+        String criarDB = "CREATE TABLE " + TABLE +
+                " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                NOME + " TEXT, " +
+                DESCRICAO + " TEXT, " +
+                FREQUENCIA + " TEXT, " +
+                "favorito INTEGER DEFAULT 0)";
         db.execSQL(criarDB);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE);
-        onCreate(sqLiteDatabase);
-    }
-
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db, oldVersion, newVersion);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE);
+        onCreate(db);
     }
 }

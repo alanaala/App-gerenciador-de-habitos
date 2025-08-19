@@ -5,20 +5,20 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alana.gerenciadorhabitos.R;
-import com.alana.gerenciadorhabitos.controller.DbController;
 import com.alana.gerenciadorhabitos.controller.HabitoController;
 import com.alana.gerenciadorhabitos.model.Habito;
 
 public class MainActivity extends AppCompatActivity {
+
     private EditText editNome, editDescricao;
     private Spinner spinnerFrequencia;
     private HabitoController controller;
-    private DbController dbController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,26 +29,40 @@ public class MainActivity extends AppCompatActivity {
         editDescricao = findViewById(R.id.editDescricao);
         spinnerFrequencia = findViewById(R.id.spinnerFrequencia);
         Button btnSalvar = findViewById(R.id.btnSalvar);
+        Button btnVerLista = findViewById(R.id.btnVerLista);
+
         controller = new HabitoController(this);
-        dbController = new DbController(this);
+
+        // Spinner Frequência
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.frequencia_array, android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerFrequencia.setAdapter(adapter);
 
         btnSalvar.setOnClickListener(v -> {
             String nome = editNome.getText().toString().trim();
             String descricao = editDescricao.getText().toString().trim();
-            String frequencia = spinnerFrequencia.getSelectedItem().toString().trim();
+            String frequencia = spinnerFrequencia.getSelectedItem().toString();
 
-            if (nome.isEmpty() || descricao.isEmpty()) {
-                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            if (nome.isEmpty()) {
+                Toast.makeText(this, "Por favor, informe o nome do hábito", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            startActivity(new Intent(MainActivity.this, ListaHabitosActivity.class));
-            Toast.makeText(this, "Hábito criado!", Toast.LENGTH_SHORT).show();
-
             Habito novoHabito = new Habito(nome, descricao, frequencia);
+            controller.adicionarHabito(novoHabito);
 
-            controller.adicionarHabito(novoHabito,nome, descricao, frequencia);
-            dbController.insert(nome, descricao, frequencia);
+            Toast.makeText(this, "Hábito salvo!", Toast.LENGTH_SHORT).show();
+
+            editNome.setText("");
+            editDescricao.setText("");
+            spinnerFrequencia.setSelection(0);
+        });
+
+        btnVerLista.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ListaHabitosActivity.class);
+            startActivity(intent);
         });
     }
 }

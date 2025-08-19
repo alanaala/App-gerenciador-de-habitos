@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/textView4"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
         android:layout_width="match_parent"
-        android:layout_height="107dp"
-        android:gravity="center"
-        android:text="Adicionar hábito"
-        android:textSize="40sp" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editNome"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:hint="Nome do hábito" />
+        <TextView
+            android:text="Gerenciar Hábito"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/editDescricao"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:gravity="top"
-        android:hint="Descrição"
-        android:inputType="textMultiLine"
-        android:minLines="3" />
+        <EditText
+            android:id="@+id/editNome"
+            android:hint="Nome do Hábito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginBottom="12dp"/>
 
-    <Spinner
-        android:id="@+id/spinnerFrequencia"
-        android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:entries="@array/frequencia_array" />
+        <EditText
+            android:id="@+id/editDescricao"
+            android:hint="Descrição"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginBottom="12dp"/>
 
-    <Button
-        android:id="@+id/btnSalvar"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginTop="16dp"
-        android:text="Salvar" />
+        <Spinner
+            android:id="@+id/spinnerFrequencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnSalvar"
+            android:text="Salvar Hábito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnVerLista"
+            android:text="Ver Lista de Hábitos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+</ScrollView>

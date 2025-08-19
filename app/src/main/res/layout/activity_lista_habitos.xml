@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="16dp"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/textView3"
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:gravity="center"
-        android:text="Lista de Habitos"
-        android:textSize="40sp" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:gravity="center"
-        android:text="Clique no item para edita-lo" />
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="362dp"
+            android:layout_height="58dp"
+            android:text="Voltar" />
 
-    <Button
-        android:id="@+id/btnNovoHabito"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Novo Hábito" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Hábito Diario"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_bg"
+            android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/listViewHabitos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <LinearLayout
+            android:id="@+id/layoutDiarioLista"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Hábito Semanal"
+            android:textAlignment="center"
+            android:background="@drawable/edit_text_bg"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layoutSemanalLista"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:background="@drawable/edit_text_bg"
+            android:text="Hábito Mensal"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layoutMensalLista"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>

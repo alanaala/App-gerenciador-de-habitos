@@ -1,67 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="24dp"
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="88dp"
-            android:gravity="center"
-            android:text="Editar Lista"
-            android:textSize="40sp" />
-
         <EditText
             android:id="@+id/editNome"
-            android:layout_width="360dp"
-            android:layout_height="63dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Nome do hábito"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:hint="Nome do Hábito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginBottom="12dp"/>
 
         <EditText
             android:id="@+id/editDescricao"
-            android:layout_width="362dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:hint="Descrição"
-            android:textSize="20sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:layout_marginBottom="12dp"/>
 
         <Spinner
             android:id="@+id/spinnerFrequencia"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:entries="@array/frequencia_array" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"/>
 
         <Button
             android:id="@+id/btnSalvar"
+            android:text="Atualizar"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginTop="16dp"
-            android:text="Salvar" />
-
-        <Button
-            android:id="@+id/btnVoltar"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:layout_marginTop="16dp"
-            android:text="Voltar" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
 
         <Button
             android:id="@+id/btnExcluir"
+            android:text="Excluir"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/red"
-            android:text="Excluir" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="12dp"/>
 
+        <Button
+            android:id="@+id/btnVoltar"
+            android:text="Voltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#9E9E9E"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </ScrollView>

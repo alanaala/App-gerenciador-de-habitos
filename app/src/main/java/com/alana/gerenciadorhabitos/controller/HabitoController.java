@@ -8,49 +8,34 @@ import java.util.ArrayList;
 
 public class HabitoController {
 
-    private static ArrayList<Habito> listaHabitos = new ArrayList<>();
+    private DbController dbController;
 
-    private Habito habito;
-    private Context context;
+    public HabitoController(Context context) {
+        dbController = new DbController(context);
+    }
 
+    public void adicionarHabito(Habito h) {
+        dbController.insert(h);
+    }
+
+    public ArrayList<Habito> listarHabitos() {
+        return dbController.listarHabitos();
+    }
+
+    public void atualizarHabito(Habito h) {
+        dbController.atualizar(h);
+    }
+
+    public void removerHabito(int id) {
+        dbController.remover(id);
+    }
     public Habito buscarPorId(int id) {
-        for (Habito h : listaHabitos) {
+        for (Habito h : listarHabitos()) {
             if (h.getId() == id) {
                 return h;
             }
         }
         return null;
-    }
-    public HabitoController(Context context) {
-        this.context = context;
-    }
-
-    public void adicionarHabito(Habito habito, String nome, String descricao, String frequencia) {
-        listaHabitos.add(habito);
-    }
-
-    public ArrayList<Habito> listarHabitos() {
-        return listaHabitos;
-    }
-
-    public void atualizarHabito(Habito habitoAtualizado) {
-        for (int i = 0; i < listaHabitos.size(); i++) {
-            Habito h = listaHabitos.get(i);
-            if (h.getNome().equalsIgnoreCase(habitoAtualizado.getNome())) {
-                listaHabitos.set(i, habitoAtualizado);
-                break;
-            }
-        }
-    }
-
-    public void removerHabito(Habito habitoAtualizado) {
-        for (int i = 0; i < listaHabitos.size(); i++) {
-            Habito h = listaHabitos.get(i);
-            if (h.getNome().equalsIgnoreCase(habitoAtualizado.getNome())) {
-                listaHabitos.remove(i);
-                break;
-            }
-        }
     }
 
 }
