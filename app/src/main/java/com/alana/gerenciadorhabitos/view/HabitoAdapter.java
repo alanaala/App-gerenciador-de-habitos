@@ -44,16 +44,15 @@ public class HabitoAdapter extends RecyclerView.Adapter<HabitoAdapter.HabitoView
         holder.txtNome.setText(habito.getNome());
         holder.txtFrequencia.setText(habito.getFrequencia());
 
-        // Cor de fundo usando LinearLayout
         switch (habito.getFrequencia()) {
             case "Diária":
-                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.rosa));
+                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.diario));
                 break;
             case "Semanal":
-                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.azul));
+                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.semanal));
                 break;
             case "Mensal":
-                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.amarelo));
+                holder.layout.setBackgroundColor(context.getResources().getColor(R.color.mensal));
                 break;
             default:
                 holder.layout.setBackgroundColor(context.getResources().getColor(R.color.cinza));
