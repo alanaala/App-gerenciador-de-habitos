@@ -1,6 +1,8 @@
 package com.alana.gerenciadorhabitos.view;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,10 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.alana.gerenciadorhabitos.R;
 import com.alana.gerenciadorhabitos.controller.HabitoController;
 import com.alana.gerenciadorhabitos.model.Habito;
+import com.alana.gerenciadorhabitos.model.HabitoNotificacao;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new HabitoController(this);
 
-        // Spinner Frequência
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this, R.array.frequencia_array, android.R.layout.simple_spinner_item
         );
@@ -55,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Hábito salvo!", Toast.LENGTH_SHORT).show();
 
+            HabitoNotificacao.exibirNotificacao(this, "Novo hábito criado!", "Você adicionou um novo hábito para acompanhar");
+
             editNome.setText("");
             editDescricao.setText("");
             spinnerFrequencia.setSelection(0);
@@ -64,5 +70,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ListaHabitosActivity.class);
             startActivity(intent);
         });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
     }
 }

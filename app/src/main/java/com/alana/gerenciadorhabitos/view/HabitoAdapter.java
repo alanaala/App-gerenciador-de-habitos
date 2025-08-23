@@ -1,4 +1,4 @@
-package com.alana.gerenciadorhabitos.adapter;
+package com.alana.gerenciadorhabitos.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
